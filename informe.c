@@ -1,48 +1,149 @@
-<h2 class="sr-only">Estado de los 54 participantes esperados: 37 completaron, 8 no cursaron, 7 en curso o incompleto, 2 con bajo rendimiento</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte de Participantes</title>
 
-<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1.5rem;">
-  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center;">
-    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;">Completaron</div>
-    <div style="font-size:28px;font-weight:500;color:#0F6E56;">37</div>
-    <div style="font-size:11px;color:var(--color-text-secondary);">69%</div>
-  </div>
-  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center;">
-    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;">No cursaron</div>
-    <div style="font-size:28px;font-weight:500;color:#A32D2D;">8</div>
-    <div style="font-size:11px;color:var(--color-text-secondary);">15%</div>
-  </div>
-  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center;">
-    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;">En curso / incompleto</div>
-    <div style="font-size:28px;font-weight:500;color:#BA7517;">7</div>
-    <div style="font-size:11px;color:var(--color-text-secondary);">13%</div>
-  </div>
-  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center;">
-    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;">Bajo rendimiento</div>
-    <div style="font-size:28px;font-weight:500;color:#E24B4A;">2</div>
-    <div style="font-size:11px;color:var(--color-text-secondary);">&lt;70 de promedio</div>
-  </div>
+<style>
+:root{
+    --primary:#b31d15;
+    --bg:#f5f7fa;
+    --text:#333;
+    --text-soft:#6b7280;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    color: var(--text);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.card {
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.completed { background:#e6f7ec; color:#1e7e34;}
+.not-started { background:#fdecea; color:#c82333;}
+.in-progress { background:#fff3cd; color:#856404;}
+.low { background:#e2e3e5; color:#383d41;}
+
+.filters{
+    margin:20px 0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.filter-btn{
+    padding:8px 14px;
+    border-radius:20px;
+    border:none;
+    cursor:pointer;
+    background:#eee;
+}
+
+.filter-btn.active{
+    background:var(--primary);
+    color:#fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+th {
+    background: #f1f3f5;
+    text-align:left;
+}
+
+.center{text-align:center;}
+
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>Reporte de Participantes</h1>
 </div>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
-  <button onclick="filter('todos')" id="btn-todos" style="font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-info);color:var(--color-text-info);cursor:pointer;">Todos (54)</button>
-  <button onclick="filter('Completó')" id="btn-comp" style="font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid #0F6E56;background:#E1F5EE;color:#085041;cursor:pointer;">Completaron (37)</button>
-  <button onclick="filter('No cursó')" id="btn-no" style="font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid #A32D2D;background:#FCEBEB;color:#501313;cursor:pointer;">No cursaron (8)</button>
-  <button onclick="filter('En curso / incompleto')" id="btn-inc" style="font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid #BA7517;background:#FAEEDA;color:#412402;cursor:pointer;">Incompleto (7)</button>
-  <button onclick="filter('Bajo rendimiento')" id="btn-bajo" style="font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid #A32D2D;background:#FAECE7;color:#4A1B0C;cursor:pointer;">Bajo rendimiento (2)</button>
+<div class="summary">
+    <div class="card completed" id="c1"></div>
+    <div class="card not-started" id="c2"></div>
+    <div class="card in-progress" id="c3"></div>
+    <div class="card low" id="c4"></div>
 </div>
 
-<div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;">
-  <table style="width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;">
-    <thead>
-      <tr style="background:var(--color-background-secondary);">
-        <th style="padding:10px 12px;text-align:left;font-weight:500;color:var(--color-text-secondary);width:40%;">Nombre</th>
-        <th style="padding:10px 12px;text-align:left;font-weight:500;color:var(--color-text-secondary);width:35%;">Email</th>
-        <th style="padding:10px 12px;text-align:center;font-weight:500;color:var(--color-text-secondary);width:12%;">Promedio</th>
-        <th style="padding:10px 12px;text-align:center;font-weight:500;color:var(--color-text-secondary);width:13%;">Estado</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+<div class="filters">
+  <button class="filter-btn active" onclick="filter('todos',this)">Todos</button>
+  <button class="filter-btn" onclick="filter('Completó',this)">Completaron</button>
+  <button class="filter-btn" onclick="filter('No cursó',this)">No cursaron</button>
+  <button class="filter-btn" onclick="filter('En curso / incompleto',this)">En curso</button>
+  <button class="filter-btn" onclick="filter('Bajo rendimiento',this)">Bajo rendimiento</button>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Email</th>
+<th class="center">Promedio</th>
+<th class="center">Estado</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+
+<div class="footer">
+Corporate Solutions · Acrópolis Lab
+</div>
+
 </div>
 
 <script>
@@ -100,37 +201,52 @@ const data = [
 ["Yessica Mercedes Torres Muñoz","yessica.torres@adenuniversity.edu.pa",95.25,"Completó"]
 ];
 
-const badges = {
-  "Completó": {bg:"#E1F5EE",color:"#085041",border:"#9FE1CB"},
-  "No cursó": {bg:"#FCEBEB",color:"#501313",border:"#F7C1C1"},
-  "En curso / incompleto": {bg:"#FAEEDA",color:"#412402",border:"#FAC775"},
-  "Bajo rendimiento": {bg:"#FAECE7",color:"#4A1B0C",border:"#F5C4B3"},
-};
+let current='todos';
 
-let current = 'todos';
+function calculateSummary(){
+    const total = data.length;
+    const completed = data.filter(r=>r[3]=="Completó").length;
+    const noCurso = data.filter(r=>r[3]=="No cursó").length;
+    const progreso = data.filter(r=>r[3]=="En curso / incompleto").length;
+    const bajo = data.filter(r=>r[3]=="Bajo rendimiento").length;
 
-function filter(f) {
-  current = f;
-  render();
+    document.getElementById("c1").innerHTML = `${completed} Completaron`;
+    document.getElementById("c2").innerHTML = `${noCurso} No cursaron`;
+    document.getElementById("c3").innerHTML = `${progreso} En curso`;
+    document.getElementById("c4").innerHTML = `${bajo} Bajo rendimiento`;
 }
 
-function render() {
-  const body = document.getElementById('tableBody');
-  const filtered = current === 'todos' ? data : data.filter(r => r[3] === current);
-  body.innerHTML = filtered.map((r,i) => {
-    const b = badges[r[3]];
-    const prom = r[2] !== null ? r[2].toFixed(1) : '—';
-    const promColor = r[2] === null ? 'var(--color-text-secondary)' : r[2] >= 90 ? '#0F6E56' : r[2] >= 70 ? 'var(--color-text-primary)' : '#A32D2D';
-    return `<tr style="border-top:0.5px solid var(--color-border-tertiary);">
-      <td style="padding:9px 12px;color:var(--color-text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r[0]}</td>
-      <td style="padding:9px 12px;color:var(--color-text-secondary);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r[1]}</td>
-      <td style="padding:9px 12px;text-align:center;font-weight:500;color:${promColor};">${prom}</td>
-      <td style="padding:9px 8px;text-align:center;">
-        <span style="font-size:11px;padding:3px 8px;border-radius:10px;background:${b.bg};color:${b.color};border:0.5px solid ${b.border};white-space:nowrap;">${r[3]}</span>
-      </td>
-    </tr>`;
-  }).join('');
+function filter(f,el){
+    current=f;
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active');
+    render();
 }
 
+function render(){
+    const body=document.getElementById("tableBody");
+
+    const filtered = current==='todos'
+        ? data
+        : data.filter(r=>r[3]===current);
+
+    body.innerHTML = filtered.map(r=>{
+        const prom = r[2]!==null ? r[2].toFixed(1) : "—";
+
+        return `
+        <tr>
+        <td>${r[0]}</td>
+        <td style="font-size:12px;color:#666;">${r[1]}</td>
+        <td class="center">${prom}</td>
+        <td class="center">${r[3]}</td>
+        </tr>
+        `;
+    }).join('');
+}
+
+calculateSummary();
 render();
 </script>
+
+</body>
+</html>
