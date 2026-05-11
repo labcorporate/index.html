@@ -3,236 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reporte de Participantes</title>
+<title>Empresas que han trabajado con nosotros</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f5f7fa;
-        margin: 0;
-        padding: 0;
-        color: #333;
-    }
 
-    .container {
-        max-width: 900px;
-        margin: 40px auto;
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    .header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
+body{
+font-family:'Inter',sans-serif;
+background:#ffffff;
+color:#1e1e1e;
+}
 
-    .logo {
-        max-width: 220px;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        margin-bottom: 15px;
-    }
+.hero{
+background:#b31d15;
+padding:50px 60px;
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+}
 
-    h1 {
-        font-size: 22px;
-        margin: 0;
-    }
+.logo{
+width:240px;
+object-fit:contain; background:rgba(255,255,255,0.08); padding:12px 18px; border-radius:18px;
+}
 
-    .summary {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 15px;
-        margin: 30px 0;
-    }
+.divider{
+width:1px;
+height:120px;
+background:rgba(255,255,255,.4);
+}
 
-    .card {
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        font-weight: bold;
-    }
+.hero h1{
+color:white;
+font-size:62px;
+font-weight:300;
+line-height:1.05;
+max-width:700px;
+letter-spacing:-2px;
+}
 
-    .completed { background: #e6f7ec; color: #1e7e34; }
-    .not-started { background: #fdecea; color: #c82333; }
-    .in-progress { background: #fff3cd; color: #856404; }
-    .low { background: #e2e3e5; color: #383d41; }
+.intro{
+padding:50px 60px 20px;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+.intro p{
+font-size:22px;
+line-height:1.8;
+color:#555;
+max-width:1100px;
+}
 
-    th, td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        text-align: left;
-        font-size: 14px;
-    }
+.line{
+width:80px;
+height:5px;
+background:#b31d15;
+margin-top:24px;
+border-radius:999px;
+}
 
-    th {
-        background: #f1f3f5;
-    }
+.container{
+padding:30px 35px 80px;
+}
 
-    .footer {
-        margin-top: 30px;
-        font-size: 13px;
-        color: #777;
-        text-align: center;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:35px;
+}
+
+.country{
+padding-right:25px;
+border-right:1px solid #eee;
+}
+
+.country h2{
+color:#b31d15;
+font-size:30px;
+margin-bottom:30px;
+font-weight:700;
+}
+
+.company{
+margin-bottom:28px;
+}
+
+.company-name{
+font-size:18px;
+font-weight:700;
+text-transform:uppercase;
+margin-bottom:12px;
+}
+
+.company ul{
+padding-left:18px;
+}
+
+.company li{
+margin-bottom:8px;
+line-height:1.6;
+font-size:14px;
+color:#555;
+}
+
+.company li::marker{
+color:#b31d15;
+}
+
+.footer{
+background:#b31d15;
+color:white;
+padding:24px 50px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:15px;
+}
+
+@media(max-width:900px){
+
+.hero{
+padding:40px 25px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.intro{
+padding:40px 25px 20px;
+}
+
+.intro p{
+font-size:18px;
+}
+
+.container{
+padding:20px;
+}
+
+.country{
+border-right:none;
+border-bottom:1px solid #eee;
+padding-bottom:30px;
+}
+}
 
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<section class="hero">
 
-    <div class="header">
-        <img class="logo" src="data:image/png;base64,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" alt="Logo"
-<div class="container">
 
-<div class="header">
-    <h1>Reporte de Participantes</h1>
+<img class="logo" src="data:image/png;base64,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RERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERK5EXO1q/w9pa+hZuKFceAAAAABJRU5ErkJggg==" alt="ADEN Logo">
+
+
+<div class="divider"></div>
+
+<h1>Empresas que han trabajado con nosotros</h1>
+
+</section>
+
+<section class="intro">
+
+<p>
+Organizaciones líderes de Latinoamérica que han confiado en nuestros programas para desarrollar talento, fortalecer capacidades y generar transformación organizacional.
+</p>
+
+<div class="line"></div>
+
+</section>
+
+<section class="container">
+
+<div class="grid">
+<div class="country"><h2>Costa Rica</h2><div class="company"><div class="company-name">ASOCIACION BANCARIA DE COSTA RICA</div><ul><li>FELICIDAD Y BIENESTAR ORGANIZACIONAL. COMO IMPACTA EN LOS RENDIMIENTOS</li></ul></div><div class="company"><div class="company-name">BAC</div><ul><li>PROGRAMA DE INNOVACION HIGH POTENTIAL</li><li>PRESENTACIONES DE ALTO IMPACTO</li><li>UN VIAJE A TU DESARROLLO</li></ul></div><div class="company"><div class="company-name">BAC CREDOMATIC</div><ul><li>CUSTOMER CENTRICITY</li><li>PRESENTACIONES DE NEGOCIOS. COMO PRESENTAR INFORMACION EJECUTIVA</li><li>DESARROLLO DE ESTRATEGIAS DE NEGOCIO PARA EL CRECIMIENTO Y RETENCION DE CLIENTES</li><li>PROGRAMA ESPECIALIZADO EN BANKING AND INSURANCE MANAGEMENT</li><li>PROGRAMA GERENCIAL PARA EL DESARROLLO DE COMPETENCIAS BAC</li><li>HERRAMIENTAS DE GESTION</li><li>MENTORIA</li><li>UN VIAJE A TU DESARROLLO, IMPULSANDO TU POTENCIAL</li><li>PROGRAMA DE LIFE CENTRIC MARKETING</li><li>RELACIONAMIENTO COMERCIAL</li></ul></div><div class="company"><div class="company-name">BAC LATAM</div><ul><li>PROGRAMA DE HABILIDADES DIRECTIVAS</li><li>GERENCIA DE RIESGOS</li><li>SIMULADOR LA ISLA</li><li>GESTION PREDICTIVA DE PROYECTOS</li><li>PROGRAMA DE HABILIDADES DIRECTIVAS</li></ul></div><div class="company"><div class="company-name">BANCO NACIONAL</div><ul><li>MODELO DE INCUBACION INTERNA Y AGILIDAD CORPORATIVA</li><li>VISION SISTEMICA Y PROSPECTIVA ESTRATEGICA</li><li>CUSTOMER EXPERIENCE</li><li>FORMACION VIRTUAL SINDICATO SEBANA BANCO NACIONAL</li><li>GESTION DE LA CULTURA DE LA INNOVACION</li></ul></div><div class="company"><div class="company-name">BANCO POPULAR</div><ul><li>PRESENTACIONES DE NEGOCIOS. COMO PRESENTAR INFORMACION EJECUTIVA</li><li>PROGRAMA DE HABILIDADES DIRECTIVAS</li></ul></div><div class="company"><div class="company-name">COOPECAJA</div><ul><li>LIDERAZGO PARA LA TRANSFORMACION</li><li>PROGRAMA DE HERRAMIENTAS GERENCIALES Y DIRECTIVAS</li></ul></div><div class="company"><div class="company-name">EQUIFAX</div><ul><li>PROFESIONALIZANDO LA GESTION: DESARROLLO DE LIDERAZGO PARA SUPERVISORES</li></ul></div><div class="company"><div class="company-name">MASTERCARD BANCO NACIONAL</div><ul><li>MANEJO DE OBJECIONES Y CIERRE DE VENTAS</li></ul></div><div class="company"><div class="company-name">MASTERCARD BANPRO</div><ul><li>ACTUALIZACION EN VENTAS</li></ul></div><div class="company"><div class="company-name">MASTERCARD-BAC</div><ul><li>ACTUALIZACION EN VENTAS</li></ul></div><div class="company"><div class="company-name">MASTERCARD-BAC CREDOMATIC</div><ul><li>HERRAMIENTAS DE VENTA EN LA NUEVA NORMALIDAD</li></ul></div></div><div class="country"><h2>Argentina</h2><div class="company"><div class="company-name">BANCO CIUDAD</div><ul><li>HABILIDADES DIRECTIVAS</li><li>OPTIMIZACION DE COSTOS Y RESILIENCIA EMPRESARIAL ANTE LA INFLACION Y DEVALUACION</li></ul></div><div class="company"><div class="company-name">BANCO NACION</div><ul><li>NUEVO MINDSET DE LOS SERVICIOS FINANCIEROS</li></ul></div><div class="company"><div class="company-name">BANCO PROVINCIAL DE NEUQUEN</div><ul><li>SIMULADOR DE HABILIDADES DIRECTIVAS</li></ul></div><div class="company"><div class="company-name">SUPERVILLE</div><ul><li>INNOVACION</li></ul></div></div><div class="country"><h2>Colombia</h2><div class="company"><div class="company-name">DAVIVIENDA</div><ul><li>LIDERES DE VICEPRESIDENCIA COMERCIAL</li></ul></div></div><div class="country"><h2>Ecuador</h2><div class="company"><div class="company-name">BAGO</div><ul><li>LIDERAZGO. GESTIONANDO LA TRANSFORMACION. ACTUALIZACION EN LIDERAZGO FRENTE A LOS NUEVOS DESAFIOS</li></ul></div><div class="company"><div class="company-name">BANCO INTERNACIONAL</div><ul><li>LA ULTIMA ALDEA</li></ul></div><div class="company"><div class="company-name">BANCO PICHINCHA</div><ul><li>SPECIALIZATION IN MANAGEMENT FOR FINANCIAL BUSINESS</li><li>HERRAMIENTAS GERENCIALES</li><li>STORYTELLING CON DATOS</li><li>FORMADOR DE FORMADORES</li><li>INNOVACION APLICADA A LA BANCA</li></ul></div><div class="company"><div class="company-name">DANEC</div><ul><li>PROGRAMA DE LIDERAZGO</li></ul></div><div class="company"><div class="company-name">PRONACA</div><ul><li>ESCUELA DE LIDERAZGO - DIRECCIONES Y GERENCIAS</li></ul></div></div><div class="country"><h2>El Salvador</h2><div class="company"><div class="company-name">BAC CREDOMATIC</div><ul><li>FINANZAS BANCARIAS</li></ul></div><div class="company"><div class="company-name">BAC PYMES</div><ul><li>HABILIDADES DIRECTIVAS</li></ul></div><div class="company"><div class="company-name">BANCO AGRICOLA</div><ul><li>EL BIENESTAR EN NUESTRO MOVIMIENTO B</li></ul></div><div class="company"><div class="company-name">BANCO CUSCATLAN</div><ul><li>PROGRAMA DE HABILIDADES DIRECTIVAS</li><li>PROGRAMA DE HABILIDADES GERENCIALES</li><li>ACTUALIZACION EN LA GESTION DE RIESGOS FINANCIEROS Y NO FINANCIEROS</li><li>BUSINESS PLAN</li><li>GOBIERNO CORPORATIVO</li><li>GESTION DE RIESGOS</li><li>PROGRAMA DE DESARROLLO GERENCIAL</li></ul></div><div class="company"><div class="company-name">DAVIVIENDA</div><ul><li>LIDERAZGO PARA EQUIPOS COMERCIALES</li></ul></div><div class="company"><div class="company-name">SISA</div><ul><li>PROGRAMA DE HABILIDADES DIRECTIVAS</li><li>PROGRAMA DE HABILIDADES GERENCIALES</li><li>GESTION DE LA MOTIVACION EN LOS EQUIPOS DE TRABAJO</li><li>MUJER & MANAGEMENT</li><li>BUSINESS PLAN</li><li>PROFESIONALIZACION COMERCIAL DE SEGUROS</li></ul></div></div><div class="country"><h2>Guatemala</h2><div class="company"><div class="company-name">BANTRAB</div><ul><li>SIMULADOR DE HABILIDADES GERENCIALES</li><li>BIENESTAR</li><li>SALUD MENTAL Y EMOCIONAL</li><li>SIMULADOR DE HABILIDADES DIRECTIVAS</li><li>IMPACTO DE LA INTELIGENCIA ARTIFICIAL EN LOS NEGOCIOS</li></ul></div><div class="company"><div class="company-name">MASTERCARD-BAC</div><ul><li>MANEJO DE OBJECIONES</li></ul></div><div class="company"><div class="company-name">SUPERINTENDENCIA DE BANCOS</div><ul><li>PENSAMIENTO ANALITICO E INNOVACION</li></ul></div></div><div class="country"><h2>Honduras</h2><div class="company"><div class="company-name">BAC</div><ul><li>BOOTCAMP DE VISION SISTEMICA DE AGILIDAD Y LAB DE INCUBACION</li></ul></div><div class="company"><div class="company-name">BAC CREDOMATIC</div><ul><li>LIDERES BAC. HERRAMIENTAS GERENCIALES</li><li>PROGRAMA DE DESARROLLO DE LIDERES</li><li>DESARROLLO DE HABILIDADES DIRECTIVAS EN LA NUEVA REALIDAD</li><li>INVERSIONES Y/O MERCADOS FINANCIEROS</li></ul></div><div class="company"><div class="company-name">BAC UNIVERSIDAD</div><ul><li>DESARROLLO DE LIDERES LIFE CENTRIC</li></ul></div><div class="company"><div class="company-name">BANCO ATLANTIDA</div><ul><li>PROGRAMA DE FORMACION INTEGRAL</li><li>PROGRAMA DE LIDERAZGO</li><li>COMUNICACIÓN Y LIDERAZGO DE EQUIPOS - INNOVACOIN EN LOS EQUIPOS DE TRABAJO</li><li>PROGRAMA DE FORMACION EJECUTIVA</li><li>BOOTCAMP PROJECT LAB: CREACION Y DESARROLLO DE PRODUCTOS</li></ul></div><div class="company"><div class="company-name">BANCO FICOHSA</div><ul><li>FORMADOR DE FORMADORES</li></ul></div><div class="company"><div class="company-name">BANCO LAFISE</div><ul><li>ACTUALIZACION GERENCIAL</li><li>NUEVOS DESAFIOS Y TENDENCIAS DE LA ALTA GERENCIA</li></ul></div><div class="company"><div class="company-name">BANPAIS</div><ul><li>LIDERAZGO, DIRECCION Y ACOMPAÑAMIENTO COMERCIAL</li><li>LIDERAZGO AGIL</li><li>PROGRAMA DE DESARROLLO COMERCIAL</li><li>EDUCACION FINANCIERA</li></ul></div><div class="company"><div class="company-name">DAVIVIENDA</div><ul><li>DAVIVIENDA REGIONAL LIDERES</li></ul></div><div class="company"><div class="company-name">FICOHSA</div><ul><li>TALLER DE LIDERAZGO CON INDICADORES DE GESTION (LIDERES)</li><li>ACADEMIA DE LIDERAZGO PILOTO SENSIBILIZACION</li></ul></div><div class="company"><div class="company-name">MASTERCARD - BANPAIS</div><ul><li>ACTUALIZACION COMERCIAL</li><li>ACTUALIZACION EN VENTAS</li></ul></div></div><div class="country"><h2>Mexico</h2><div class="company"><div class="company-name">BACHOCO</div><ul><li>100% AGILES EN LA GESTION DE NEGOCIOS</li></ul></div></div><div class="country"><h2>Nicaragua</h2><div class="company"><div class="company-name">BANCO LAFISE</div><ul><li>NUEVOS DESAFIOS Y TENDENCIAS DE LA ALTA GERENCIA</li></ul></div></div><div class="country"><h2>Panama</h2><div class="company"><div class="company-name">BAC CREDOMATIC</div><ul><li>VENTAS BASADAS EN LA METODOLOGIA CHALLENGER</li><li>ACADEMIA DESARROLLO DE TALENTO</li><li>LEARNING WEEK</li><li>ENCUENTROS PARA EL FORTALECIMIENTO DE HABILIDADES COMUNICACIONALES</li><li>ACCOUNTABILITY PERSONAL</li><li>EL FEEDBACK ES HISTORIA Y FEEDFORWARD ES LA PRACTICA DE GESTION MAS EXITOSA</li><li>NEGOCIACION</li><li>HERRAMIENTAS DE NEGOCIACION COMERCIAL PARA LA VENTA ESTRATEGICA</li></ul></div><div class="company"><div class="company-name">BANCO ALIADO</div><ul><li>HACIA PROCESOS AGILES Y EFECTIVOS DE GESTION</li></ul></div><div class="company"><div class="company-name">BANCO DELTA</div><ul><li>LIDERAZGO Y MANAGEMENT</li></ul></div><div class="company"><div class="company-name">BANCO GENERAL</div><ul><li>PROGRAMA HERRAMIENTAS PARA LA GESTION</li></ul></div><div class="company"><div class="company-name">BANCO LAFISE</div><ul><li>NUEVOS DESAFIOS Y TENDENCIAS DE LA ALTA GERENCIA</li><li>HERRAMIENTAS PARA LA GERENCIA</li></ul></div><div class="company"><div class="company-name">BANCO NACIONAL DE PANAMA</div><ul><li>PROGRAMA DE HABILIDADES GERENCIALES</li><li>GERENCIA DE RECUPERACION DE CREDITOS</li></ul></div><div class="company"><div class="company-name">BANITSMO</div><ul><li>NEGOCIACION EFECTIVA</li></ul></div><div class="company"><div class="company-name">CREDICORP BANK</div><ul><li>DESARROLLO DE HABILIDADES DIRECTIVAS Y DESAFIOS EN BANCA</li><li>BIG DATA & ANALYTICS</li><li>METODOLOGIAS AGILES PARA INNOVAR</li></ul></div><div class="company"><div class="company-name">GLOBAL BANK</div><ul><li>LIDERAZGO AGIL</li><li>HACIA EL AGILISMO EN GLOBAL BANK. AGILISMO INTEGRAL</li><li>PROGRAMA DE HABILIDADES GERENCIALES</li></ul></div><div class="company"><div class="company-name">MASTERCARD BANITSMO</div><ul><li>MANEJO DE OBJECIONES Y CIERRE DE VENTAS</li></ul></div><div class="company"><div class="company-name">PRIVAL BANK</div><ul><li>HABILIDADES DIRECTIVAS EN COMUNICACION</li></ul></div><div class="company"><div class="company-name">ST GEORGES BANK</div><ul><li>LIDERAZGO Y HABILIDADES GERENCIALES</li></ul></div><div class="company"><div class="company-name">ST. GEORGES BANK</div><ul><li>HERRAMIENTAS DE LIDERAZGO FRENTE A LOS NUEVOS DESAFIOS DE GESTION</li></ul></div></div><div class="country"><h2>Republica Dominicana</h2><div class="company"><div class="company-name">BANCO POPULAR</div><ul><li>PROGRAMA DE HABILIDADES DIRECTIVAS</li><li>GESTION DEL CAMBIO</li></ul></div><div class="company"><div class="company-name">SUPERINTENDENCIA DE BANCOS</div><ul><li>NUEVAS TENDENCIAS EN GESTION DEL CAPITAL HUMANO EN EL SECTOR PUBLICO</li></ul></div></div>
 </div>
 
-<div class="summary">
-    <div class="card completed" id="c1"></div>
-    <div class="card not-started" id="c2"></div>
-    <div class="card in-progress" id="c3"></div>
-    <div class="card low" id="c4"></div>
-</div>
+</section>
 
-<div class="filters">
-  <button class="filter-btn active" onclick="filter('todos',this)">Todos</button>
-  <button class="filter-btn" onclick="filter('Completó',this)">Completaron</button>
-  <button class="filter-btn" onclick="filter('No cursó',this)">No cursaron</button>
-  <button class="filter-btn" onclick="filter('En curso / incompleto',this)">En curso</button>
-  <button class="filter-btn" onclick="filter('Bajo rendimiento',this)">Bajo rendimiento</button>
-</div>
-
-<table>
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Email</th>
-<th class="center">Promedio</th>
-<th class="center">Estado</th>
-</tr>
-</thead>
-<tbody id="tableBody"></tbody>
-</table>
-
-<div class="footer">
-Corporate Solutions · Acrópolis Lab
-</div>
-
-</div>
-
-<script>
-const data = [
-["Alejandro Arroyave","alejandro.arroyave@adenuniversity.edu.pa",97.5,"Completó"],
-["Alexis Cuartas","alexis.cuartas@adenuniversity.edu.pa",87.5,"Completó"],
-["Ana Taborda","ana.taborda@adenuniversity.edu.pa",97.5,"Completó"],
-["Andres Alzate Meneses","andres.alzate@adenuniversity.edu.pa",null,"En curso / incompleto"],
-["Arbey Alexander Restrepo Patiño","alexander.restrepo@adenuniversity.edu.pa",95.25,"Completó"],
-["Arielys Zuniga","arielys.zuniga@adenuniversity.edu.pa",98,"En curso / incompleto"],
-["Carol Esteffan Jurado Serna","carol.jurado@adenuniversity.edu.pa",89,"Completó"],
-["Carolina Mejía Higinio","carolina.mejia@adenuniversity.edu.pa",97.5,"Completó"],
-["Claudia Patricia Alzate Machado","claudia.alzate@adenuniversity.edu.pa",97.5,"Completó"],
-["Daniel Villada","daniel.villada@adenuniversity.edu.pa",95,"Completó"],
-["Daniela Ospina Bedoya","daniela.ospina@adenuniversity.edu.pa",100,"Completó"],
-["Edwin Daniel Sosa Correa","edwindaniel.sosa@adenuniversity.edu.pa",78.75,"Completó"],
-["Edwin Ortiz","edwin.ortiz@adenuniversity.edu.pa",null,"En curso / incompleto"],
-["Elkin Alejandro Ossa Rueda","alejandro.ossa@adenuniversity.edu.pa",96.25,"Completó"],
-["Erika Andrea Florez Gonzalez","erika.florez@adenuniversity.edu.pa",100,"Completó"],
-["Gisella del Carmen Valarezco Estrada","gissella.valarezo@adenuniversity.edu.pa",86.25,"Completó"],
-["Jeison Cordero","jeison.cordero@adenuniversity.edu.pa",65.75,"Bajo rendimiento"],
-["Jennifer Mosquera","jennifer.mosquera@adenuniversity.edu.pa",66.25,"Bajo rendimiento"],
-["Jensy Mena","jensy.mena@adenuniversity.edu.pa",100,"Completó"],
-["Jeremy Alexander Mojica Page","jeremy.mojica@adenuniversity.edu.pa",98,"Completó"],
-["Johan sneider Quintana López","johan.quintana@adenuniversity.edu.pa",95.25,"Completó"],
-["Johayni Ortega","johayni.ortega@adenuniversity.edu.pa",96.25,"Completó"],
-["José Mario Pedrozo Vasquez","jose.pedrozo@adenuniversity.edu.pa",95,"Completó"],
-["Juan Camilo Tabares Mesa","juan.tabares@adenuniversity.edu.pa",85,"Completó"],
-["Juan Carlos David Cely Suarez","juancarlos.cely@adenuniversity.edu.pa",75,"Completó"],
-["Juan Esteban Otalvaro Arenas","juan.otalvaro@adenuniversity.edu.pa",100,"Completó"],
-["Juan Lopez","juan.lopez@adenuniversity.edu.pa",91.5,"En curso / incompleto"],
-["Julián Felipe Jaramillo Alvarez","julian.jaramillo@adenuniversity.edu.pa",100,"Completó"],
-["Julian Villa Ospina","julian.villa@adenuniversity.edu.pa",82.5,"Completó"],
-["Kimbery Martinez","kimberly.martinez@adenuniversity.edu.pa",null,"En curso / incompleto"],
-["Laura Vanessa Toro Quiceno","laura.toro@adenuniversity.edu.pa",66.25,"Bajo rendimiento"],
-["Lisseth Cristina Gomez Cardona","lisseth.gomez@adenuniversity.edu.pa",85.5,"Completó"],
-["Luis Eduardo Florez Ricardo","luis.florez@adenuniversity.edu.pa",85.75,"Completó"],
-["Luisa Fernanda Luna Herrera","luisafernanda.herrera@adenuniversity.edu.pa",95.25,"Completó"],
-["Luisa Uribe","luisafernanda.uribe@adenuniversity.edu.pa",96.25,"Completó"],
-["Maria Alejandra López Aguiar","mariaalejandra.lopez@adenuniversity.edu.pa",97.5,"Completó"],
-["Mariana Muñoz","mariana.munoz@adenuniversity.edu.pa",97.5,"Completó"],
-["Mario Javier Palacio Bentancur","mario.palacio@adenuniversity.edu.pa",95.25,"Completó"],
-["Mayerli Andrea Espinosa López","mayerli.espinosa@adenuniversity.edu.pa",85.5,"Completó"],
-["Merichel Argelis Avila Santos","merichel.avila@adenuniversity.edu.pa",97.75,"Completó"],
-["Noris Elena Franco Dominguez","noris.franco@adenuniversity.edu.pa",97.5,"Completó"],
-["PAOLA PINILLA","andrea.pinilla@adenuniversity.edu.pa",98,"Completó"],
-["Raul Lopez","raul.lopez@adenuniversity.edu.pa",96.25,"Completó"],
-["Sebastian Durango","sebastian.durango@adenuniversity.edu.pa",95.25,"Completó"],
-["Sor Milena Arboleda Cardona","milena.arboleda@adenuniversity.edu.pa",78.75,"Completó"],
-["Tira Linn Mejía Bellasteros","tira.mejia@adenuniversity.edu.pa",85,"Completó"],
-["Valentina Arroyave Cadavid","valentina.arroyave@adenuniversity.edu.pa",100,"Completó"],
-["Valeria Santander","valeria.santander@adenuniversity.edu.pa",97.5,"Completó"],
-["Veronica Julieth Tejada Vera","veronica.tejada@adenuniversity.edu.pa",97.5,"Completó"],
-["Viviana Vanessa Córdoba Meneses","viviana.cordoba@adenuniversity.edu.pa",95.5,"En curso / incompleto"],
-["Yessica Mercedes Torres Muñoz","yessica.torres@adenuniversity.edu.pa",95.25,"Completó"]
-];
-
-let current='todos';
-
-function calculateSummary(){
-    const total = data.length;
-    const completed = data.filter(r=>r[3]=="Completó").length;
-    const noCurso = data.filter(r=>r[3]=="No cursó").length;
-    const progreso = data.filter(r=>r[3]=="En curso / incompleto").length;
-    const bajo = data.filter(r=>r[3]=="Bajo rendimiento").length;
-
-    document.getElementById("c1").innerHTML = `${completed} Completaron`;
-    document.getElementById("c2").innerHTML = `${noCurso} No cursaron`;
-    document.getElementById("c3").innerHTML = `${progreso} En curso`;
-    document.getElementById("c4").innerHTML = `${bajo} Bajo rendimiento`;
-}
-
-function filter(f,el){
-    current=f;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    el.classList.add('active');
-    render();
-}
-
-function render(){
-    const body=document.getElementById("tableBody");
-
-    const filtered = current==='todos'
-        ? data
-        : data.filter(r=>r[3]===current);
-
-    body.innerHTML = filtered.map(r=>{
-        const prom = r[2]!==null ? r[2].toFixed(1) : "—";
-
-        return `
-        <tr>
-        <td>${r[0]}</td>
-        <td style="font-size:12px;color:#666;">${r[1]}</td>
-        <td class="center">${prom}</td>
-        <td class="center">${r[3]}</td>
-        </tr>
-        `;
-    }).join('');
-}
-
-calculateSummary();
-render();
-</script>
+<footer class="footer">
+<div>www.aden.org</div>
+<div>@adenbusinessschool</div>
+</footer>
 
 </body>
 </html>
